@@ -227,6 +227,11 @@ public class fenetredeJeu extends javax.swing.JFrame {
         // TODO add your handling code here:
         panneau_info_joueurs.setVisible(true);
         panneau_info_partie.setVisible(true);
+        initialiserPartie();
+        panneau_grille.repaint();
+        btn_start.setEnabled(false);
+        
+        
     }//GEN-LAST:event_btn_startActionPerformed
 
     /**
@@ -276,8 +281,19 @@ public void initialiserPartie() {
         
         
         ListeJoueurs[0] = J1;
-        ListeJoueurs[1] = J2;
+        ListeJoueurs[1] = J2; 
         
+        attribuerCouleursAuxJoueurs();
+        lbl_j1_nom.setText(nomJoueur1);
+        lbl_j2_nom.setText(nomJoueur2);
+        
+        lbl_j1_couleur.setText(J1.Couleur);
+        lbl_j2_couleur.setText(J2.Couleur);
+                
+        lbl_j1_desint.setText(J1.nombreDesintegrateurs+"");
+        lbl_j2_desint.setText(J2.nombreDesintegrateurs+"");
+                
+                
         Scanner sc = new Scanner(System.in);
         System.out.println("Entrer le nom du premier joueur :");
         joueur joueur1 = new joueur(sc.nextLine());
@@ -298,6 +314,7 @@ public void attribuerCouleursAuxJoueurs(){
     else {
         ListeJoueurs[0].couleur = "Rouge";
         ListeJoueurs[1].couleur = "Jaune";
+        lbl_jcourant.setText(JoueurCourant.nom );
     }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
