@@ -4,7 +4,10 @@
  */
 package superpuissance4_bottraud_boniol;
 
-/**
+import java.util.Random;
+import java.util.Scanner;
+
+/** 
  *
  * @author guilenebottraud
  */
@@ -260,7 +263,43 @@ public class fenetredeJeu extends javax.swing.JFrame {
             }
         });
     }
+public void initialiserPartie() {
+     plateau = new PlateauDeJeu();
+        plateau.viderGrille(); // créé et afficher grille
 
+        String nomJoueur1 = nom_joueur1.getText();
+        joueur J1 = new joueur(nomJoueur1);
+        
+        
+         String nomJoueur2 = nom_joueur2.getText();
+        joueur J2 = new joueur(nomJoueur2);
+        
+        
+        ListeJoueurs[0] = J1;
+        ListeJoueurs[1] = J2;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Entrer le nom du premier joueur :");
+        joueur joueur1 = new joueur(sc.nextLine());
+        System.out.println("Entrer le nom du deuxième joueur :");
+        joueur joueur2 = new joueur(sc.nextLine());
+        ListeJoueurs[0] = joueur1;
+        ListeJoueurs[1] = joueur2;
+
+ }
+public void attribuerCouleursAuxJoueurs(){
+    Random alea = new Random(); // attribution des joueurs au hasard
+    boolean ChoixJoueur;
+    ChoixJoueur = alea.nextBoolean();
+    if (ChoixJoueur == true){
+        ListeJoueurs[0].couleur = "Jaune";
+        ListeJoueurs[1].couleur = "Rouge";
+    }
+    else {
+        ListeJoueurs[0].couleur = "Rouge";
+        ListeJoueurs[1].couleur = "Jaune";
+    }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;
