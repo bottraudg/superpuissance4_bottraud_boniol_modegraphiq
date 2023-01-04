@@ -30,7 +30,11 @@ public class CelluleGraphique extends JButton{
         super.paintComponent(G); 
         if (celluleAssociee.presenceTrouNoir() == true) {
         setIcon (img_trouNoir); // on attribue l'image celluleVide.png 
-        
-    }
         }
-}
+        else if (celluleAssociee.presenceDesintegrateur()== true) {
+        setIcon (img_desint); 
+        } 
+        else String.couleur_jeton = celluleAssociee.lireCouleurDuJeton();
+        switch (celluleAssociee.lireCouleurDuJeton()){
+         
+}}
